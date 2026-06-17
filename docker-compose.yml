@@ -1,0 +1,13 @@
+services:
+  crush:
+    image: ghcr.io/dilboy/crush:main
+    container_name: crush
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./config:/root/.config/crush
+      - ./data:/root/.local/share/crush
+      - ./workspace:/workspace
+    env_file:
+      - .env
